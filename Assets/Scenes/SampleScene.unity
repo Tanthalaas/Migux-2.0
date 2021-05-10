@@ -435,6 +435,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eab3d08053f9cd14b811e4522d0a31d5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  personagem: {fileID: 607455750}
   velocidade: 8
   velocidadeDeSkate: 10
   usandoSkate: 0
