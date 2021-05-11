@@ -44,6 +44,13 @@ public class Personagem : MonoBehaviour
                 personagemSelecionado = tubarao;
                 break;
         }
+
+        if(personagemSelecionado != aguaViva) Destroy(aguaViva.gameObject);
+        if(personagemSelecionado != cavaloMarinho) Destroy(cavaloMarinho.gameObject);
+        if(personagemSelecionado != estrela) Destroy(estrela.gameObject);
+        if(personagemSelecionado != peixe) Destroy(peixe.gameObject);
+        if(personagemSelecionado != polvo) Destroy(polvo.gameObject);
+        if(personagemSelecionado != tubarao) Destroy(tubarao.gameObject);
     }
 
     public void SelecionarCores(Color corPrimaria, Color corSecundaria)
