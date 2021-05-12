@@ -8,7 +8,7 @@ using DG.Tweening;
 public class Transicao : MonoBehaviour
 {
     public static Transicao Instance;
-    [SerializeField] GameObject mascara;
+    [SerializeField] GameObject mascara, fundo;
     [SerializeField] TextMeshPro textoCarregamento;
     [SerializeField] float tempoDeTransicao;
     bool falsaTransicao;
@@ -29,6 +29,9 @@ public class Transicao : MonoBehaviour
     public void Carregar(TweenCallback aoTransicionar, Action finalDaTransicaoFalsa = null)
     {
         this.finalDaTransicaoFalsa = finalDaTransicaoFalsa;
+
+        fundo.SetActive(true);
+        mascara.SetActive(true);
 
         mascara.transform
             .DOScale(Vector3.zero, tempoDeTransicao)
@@ -66,6 +69,14 @@ public class Transicao : MonoBehaviour
 
         mascara.transform
             .DOScale(Vector3.one * 1.1f, tempoDeTransicao)
-            .SetUpdate(true);
+            .SetUpdate(true)
+            .OnComplete(OcultarMascara);
+    }
+
+    //Economia de recursos
+    void OcultarMascara()
+    {
+        fundo.SetActive(false);
+        mascara.SetActive(false);
     }
 }

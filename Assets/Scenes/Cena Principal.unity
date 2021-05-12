@@ -3086,6 +3086,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mascara: {fileID: 379369825}
+  fundo: {fileID: 868755457}
   textoCarregamento: {fileID: 780303401}
   tempoDeTransicao: 0.4
 --- !u!1 &1097472532
