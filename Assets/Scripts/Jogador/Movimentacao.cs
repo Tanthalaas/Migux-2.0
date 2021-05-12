@@ -10,17 +10,36 @@ public class Movimentacao : MonoBehaviour
     [SerializeField] float velocidadeDeSkate;
     bool andando;
     [SerializeField] bool usandoSkate;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    TrocaSalas trocadorDeSalasClicado;
+    [SerializeField] float multiplicadorDeVelocidadeAtual;
 
-    // Update is called once per frame
+
     void Update()
     {
+        DetectarTrocadorDeSalas();
         AndarAoClicar();
         OlharProMouse();
+    }
+
+    void DetectarTrocadorDeSalas()
+    {
+        if(Input.GetMouseButtonDown(0))
+        {
+            Vector2 position = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            RaycastHit2D hit = Physics2D.CircleCast(position, 0.2f, Vector2.up, 0.1f);
+            if(hit)
+            {
+                TrocaSalas trocador;
+                if(hit.collider.CompareTag("Troca Salas") && hit.collider.TryGetComponent<TrocaSalas>(out trocador))
+                {
+                    trocadorDeSalasClicado = trocador;
+                }else{
+                    trocadorDeSalasClicado = null;
+                }
+            }else{
+                trocadorDeSalasClicado = null;
+            }
+        }
     }
 
     void AndarAoClicar()
@@ -34,19 +53,28 @@ public class Movimentacao : MonoBehaviour
             if(!usandoSkate)
             {
                 transform
-                    .DOMove(position, Vector2.Distance(position, transform.position) / velocidade)
+                    .DOMove(position, Vector2.Distance(position, transform.position) / velocidade / multiplicadorDeVelocidadeAtual)
                     .SetUpdate(true)
                     .SetEase(Ease.Linear)
-                    .OnComplete(() => andando = false);
+                    .OnComplete(OnAndarComplete);
             } 
             else 
             {
                 transform
-                    .DOMove(position, Vector2.Distance(position, transform.position) / velocidadeDeSkate)
+                    .DOMove(position, Vector2.Distance(position, transform.position) / velocidadeDeSkate / multiplicadorDeVelocidadeAtual)
                     .SetUpdate(true)
                     .SetEase(Ease.OutCubic)
-                    .OnComplete(() => andando = false);
+                    .OnComplete(OnAndarComplete);
             }
+        }
+    }
+
+    void OnAndarComplete()
+    {
+        andando = false;
+        if(trocadorDeSalasClicado)
+        {
+            trocadorDeSalasClicado.Trocar(this);
         }
     }
 
@@ -57,7 +85,6 @@ public class Movimentacao : MonoBehaviour
             //TODO: Lógica de olhar para o mouse
             Vector2 direcaoDoMouse = Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position;
             float angulo = Vector2.SignedAngle(Vector2.right, direcaoDoMouse);
-            Debug.Log(angulo);
 
             if(angulo >= 135f)
             {
@@ -92,5 +119,10 @@ public class Movimentacao : MonoBehaviour
                 personagem.MostrarLado(PersonagemBase.Direcao.Esquerda);
             }
         }
+    }
+
+    public void SetMultiplicadorDeVelocidade(float multiplicador) 
+    {
+        multiplicadorDeVelocidadeAtual = multiplicador;
     }
 }
