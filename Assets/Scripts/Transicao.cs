@@ -33,6 +33,8 @@ public class Transicao : MonoBehaviour
         fundo.SetActive(true);
         mascara.SetActive(true);
 
+        if(finalDaTransicaoFalsa == null) textoCarregamento.gameObject.SetActive(true);
+
         mascara.transform
             .DOScale(Vector3.zero, tempoDeTransicao)
             .SetUpdate(true)
@@ -41,17 +43,12 @@ public class Transicao : MonoBehaviour
 
     public void IniciarFalsoCarregamento()
     {
-        textoCarregamento.gameObject.SetActive(true);
         falsaTransicao = true;
-        porcentagem = 0;
+        porcentagem = 100;
     }
 
     private void FixedUpdate() {
         textoCarregamento.text = $"{Mathf.CeilToInt(porcentagem)}%";
-        if(falsaTransicao)
-        {
-            porcentagem += 5f;
-        }
         if(porcentagem >= 100f)
         {
             TerminarCarregamento();
