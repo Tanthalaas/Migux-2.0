@@ -206,6 +206,50 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &7926975
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7926977}
+  - component: {fileID: 7926976}
+  m_Layer: 0
+  m_Name: Mundo Aquatico
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &7926976
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7926975}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ae0d0585d8d7ae8438736e71566f7db7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  salaInicial: {fileID: 1618809840}
+--- !u!4 &7926977
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7926975}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.9267848, y: 0.12092589, z: -29.71705}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &35427989
 GameObject:
   m_ObjectHideFlags: 0
@@ -344,7 +388,7 @@ Transform:
   - {fileID: 1445653499}
   - {fileID: 184728301}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &135146181
 GameObject:
@@ -391,7 +435,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   salaDestino: {fileID: 705353798}
-  salaAtual: {fileID: 1580069561}
   posicaoDestino: {x: 5.2, y: -3.4, z: 0}
   multiplicadorDeVelocidade: 1
 --- !u!60 &135146184
@@ -554,7 +597,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   salaDestino: {fileID: 583192899}
-  salaAtual: {fileID: 57318196}
   posicaoDestino: {x: 1.4, y: -2.1, z: 0}
   multiplicadorDeVelocidade: 1
 --- !u!60 &184728303
@@ -634,7 +676,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   salaDestino: {fileID: 1618809840}
-  salaAtual: {fileID: 1580069561}
   posicaoDestino: {x: -4.9, y: -2, z: 0}
   multiplicadorDeVelocidade: 0.5
 --- !u!60 &224608897
@@ -964,7 +1005,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   salaDestino: {fileID: 1618809840}
-  salaAtual: {fileID: 521157367}
   posicaoDestino: {x: -0.2, y: -3, z: 0}
   multiplicadorDeVelocidade: 0.5
 --- !u!60 &336927048
@@ -1044,7 +1084,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   salaDestino: {fileID: 2009275002}
-  salaAtual: {fileID: 1618809840}
   posicaoDestino: {x: -6.4, y: -3.5, z: 0}
   multiplicadorDeVelocidade: 1
 --- !u!60 &361285872
@@ -1590,7 +1629,7 @@ Transform:
   - {fileID: 233112873}
   - {fileID: 336927046}
   m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &521586334
 GameObject:
@@ -1637,7 +1676,7 @@ Transform:
   - {fileID: 579752314}
   - {fileID: 1379736692}
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &579752313
 GameObject:
@@ -1684,7 +1723,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   salaDestino: {fileID: 1618809840}
-  salaAtual: {fileID: 521586335}
   posicaoDestino: {x: -2, y: -1.3, z: 0}
   multiplicadorDeVelocidade: 0.5
 --- !u!60 &579752316
@@ -1764,7 +1802,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   salaDestino: {fileID: 1618809840}
-  salaAtual: {fileID: 583192899}
   posicaoDestino: {x: 3.9, y: 1.1, z: 0}
   multiplicadorDeVelocidade: 0.5
 --- !u!60 &582305309
@@ -1844,7 +1881,7 @@ Transform:
   - {fileID: 1974291713}
   - {fileID: 582305307}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &596970091
 GameObject:
@@ -2139,7 +2176,7 @@ Transform:
   - {fileID: 804325895}
   - {fileID: 930861543}
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &709712019
 GameObject:
@@ -3057,7 +3094,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   salaDestino: {fileID: 1580069561}
-  salaAtual: {fileID: 705353798}
   posicaoDestino: {x: 0, y: -1, z: 0}
   multiplicadorDeVelocidade: 1
 --- !u!60 &930861545
@@ -3280,7 +3316,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8261194319516298398, guid: 61e546e43da4f5f4c968dde05b5f26db, type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 8261194319516298398, guid: 61e546e43da4f5f4c968dde05b5f26db, type: 3}
       propertyPath: m_LocalScale.x
@@ -3381,7 +3417,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   salaDestino: {fileID: 521586335}
-  salaAtual: {fileID: 1618809840}
   posicaoDestino: {x: 7, y: -2.5, z: 0}
   multiplicadorDeVelocidade: 1
 --- !u!60 &1056654321
@@ -3666,7 +3701,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   salaDestino: {fileID: 521586335}
-  salaAtual: {fileID: 1632038957}
   posicaoDestino: {x: -0.4, y: -2.6, z: 0}
   multiplicadorDeVelocidade: 1
 --- !u!60 &1097472535
@@ -4491,7 +4525,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   salaDestino: {fileID: 1618809840}
-  salaAtual: {fileID: 2009275002}
   posicaoDestino: {x: 5.2, y: -1.7, z: 0}
   multiplicadorDeVelocidade: 0.5
 --- !u!60 &1345376460
@@ -4808,7 +4841,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   salaDestino: {fileID: 1632038957}
-  salaAtual: {fileID: 521586335}
   posicaoDestino: {x: 8, y: -3, z: 0}
   multiplicadorDeVelocidade: 1
 --- !u!60 &1379736694
@@ -4924,7 +4956,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1441398791
 GameObject:
@@ -5190,7 +5222,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   salaDestino: {fileID: 1803197622}
-  salaAtual: {fileID: 57318196}
   posicaoDestino: {x: -5, y: -0.6, z: 0}
   multiplicadorDeVelocidade: 2
   portaAberta: {fileID: 1599505985}
@@ -5476,7 +5507,7 @@ Transform:
   - {fileID: 224608895}
   - {fileID: 135146182}
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1580069561
 MonoBehaviour:
@@ -5536,7 +5567,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   salaDestino: {fileID: 1580069561}
-  salaAtual: {fileID: 1618809840}
   posicaoDestino: {x: 7, y: -3.5, z: 0}
   multiplicadorDeVelocidade: 1
 --- !u!60 &1585066177
@@ -5864,7 +5894,7 @@ Transform:
   - {fileID: 1593897615}
   - {fileID: 1329107645}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1618809840
 MonoBehaviour:
@@ -5923,7 +5953,7 @@ Transform:
   - {fileID: 1267704299}
   - {fileID: 1097472533}
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1686302911
 GameObject:
@@ -6138,54 +6168,7 @@ Transform:
   - {fileID: 844604531}
   - {fileID: 2024736712}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1817400782
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1817400784}
-  - component: {fileID: 1817400783}
-  m_Layer: 0
-  m_Name: Trocador de Salas
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1817400783
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1817400782}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2b2f2453c8595dc49bed72981a3de9a7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  salaDestino: {fileID: 0}
-  salaAtual: {fileID: 0}
-  posicaoDestino: {x: 0, y: 0, z: 0}
-  multiplicadorDeVelocidade: 1
---- !u!4 &1817400784
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1817400782}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 12
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1818566858
 GameObject:
@@ -6399,7 +6382,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   salaDestino: {fileID: 583192899}
-  salaAtual: {fileID: 1618809840}
   posicaoDestino: {x: 7, y: -3.5, z: 0}
   multiplicadorDeVelocidade: 1
 --- !u!60 &1840996497
@@ -6564,7 +6546,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   salaDestino: {fileID: 57318196}
-  salaAtual: {fileID: 583192899}
   posicaoDestino: {x: 5.4, y: -4, z: 0}
   multiplicadorDeVelocidade: 1
 --- !u!60 &1974291715
@@ -6732,7 +6713,7 @@ Transform:
   - {fileID: 1686302912}
   - {fileID: 1345376458}
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2019836750
 GameObject:
@@ -6779,7 +6760,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   salaDestino: {fileID: 521157367}
-  salaAtual: {fileID: 1618809840}
   posicaoDestino: {x: -6.8, y: -3.5, z: 0}
   multiplicadorDeVelocidade: 1
 --- !u!60 &2019836753
@@ -6859,7 +6839,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   salaDestino: {fileID: 57318196}
-  salaAtual: {fileID: 1803197622}
   posicaoDestino: {x: 4.8, y: 0.7, z: 0}
   multiplicadorDeVelocidade: 1
 --- !u!60 &2024736714

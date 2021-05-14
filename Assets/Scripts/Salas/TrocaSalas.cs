@@ -5,7 +5,7 @@ using UnityEngine;
 public class TrocaSalas : MonoBehaviour
 {
     [SerializeField] Sala salaDestino;
-    [SerializeField] Sala salaAtual;
+    static Sala salaAtual;
     [SerializeField] Vector3 posicaoDestino;
     [SerializeField] float multiplicadorDeVelocidade = 1f;
 
@@ -23,6 +23,7 @@ public class TrocaSalas : MonoBehaviour
     void AoTerminarTransicao()
     {
         salaDestino.gameObject.SetActive(true);
+        salaAtual = salaDestino;
 
         Movimentacao jogador = Movimentacao.Instance;
 
@@ -30,5 +31,10 @@ public class TrocaSalas : MonoBehaviour
         jogador.transform.position = posicaoDestino;
         jogador.SetMultiplicadorDeVelocidade(multiplicadorDeVelocidade);
 
+    }
+
+    public static void SetSalaAtual(Sala sala)
+    {
+        salaAtual = sala;
     }
 }
