@@ -8,10 +8,7 @@ public class Botao : MonoBehaviour
     [SerializeField] RectTransform rectTransform;
     Vector2 mouseOffset;
 
-    public virtual void Clicar()
-    {
-
-    }
+    public virtual void Clicar() {}
 
     public void ComecarArrastamento()
     {
