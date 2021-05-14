@@ -13,6 +13,11 @@ public class TrocaSalas : MonoBehaviour
     {
         Transicao.Instance.Carregar(OcultarSalaAtual, AoTerminarTransicao);
     }
+    
+    public void BloquearMovimentacao()
+    {
+        Movimentacao.Instance.BloquearMovimentacao();
+    }
 
     void OcultarSalaAtual()
     {
