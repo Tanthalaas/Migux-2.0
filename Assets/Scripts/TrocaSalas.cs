@@ -8,11 +8,9 @@ public class TrocaSalas : MonoBehaviour
     [SerializeField] Sala salaAtual;
     [SerializeField] Vector3 posicaoDestino;
     [SerializeField] float multiplicadorDeVelocidade = 1f;
-    Movimentacao jogador;
 
-    public void Trocar(Movimentacao jogador)
+    public void Trocar()
     {
-        this.jogador = jogador;
         Transicao.Instance.Carregar(OcultarSalaAtual, AoTerminarTransicao);
     }
 
@@ -26,8 +24,11 @@ public class TrocaSalas : MonoBehaviour
     {
         salaDestino.gameObject.SetActive(true);
 
+        Movimentacao jogador = Movimentacao.Instance;
+
         jogador.transform.localScale = Vector3.one * salaDestino.GetEscalaDoJogador();
         jogador.transform.position = posicaoDestino;
         jogador.SetMultiplicadorDeVelocidade(multiplicadorDeVelocidade);
+
     }
 }

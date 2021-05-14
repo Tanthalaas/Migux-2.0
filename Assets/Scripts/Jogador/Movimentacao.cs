@@ -5,16 +5,36 @@ using DG.Tweening;
 
 public class Movimentacao : MonoBehaviour
 {
+    public static Movimentacao Instance;
     [SerializeField] Personagem personagem;
     [SerializeField] float velocidade;
     [SerializeField] float velocidadeDeSkate;
-    bool andando;
+    bool andando, podeAndar, emTransicao;
     [SerializeField] bool usandoSkate;
     TrocaSalas trocadorDeSalasClicado;
     [SerializeField] float multiplicadorDeVelocidadeAtual;
 
 
+    private void Start() {
+        Instance = this;
+    }
+
+    public void BloquearAndada()
+    {
+        podeAndar = false;
+    }
+
+    public void SetEmTransicao(bool emTransicao)
+    {
+        this.emTransicao = emTransicao;
+    }
+
     void Update()
+    {
+        podeAndar = true;
+    }
+
+    void LateUpdate()
     {
         DetectarTrocadorDeSalas();
         AndarAoClicar();
@@ -44,7 +64,7 @@ public class Movimentacao : MonoBehaviour
 
     void AndarAoClicar()
     {
-        if(Input.GetMouseButtonDown(0))
+        if(Input.GetMouseButtonDown(0) && podeAndar && !emTransicao)
         {
             OlharProMouse(true);
             andando = true;
@@ -74,7 +94,7 @@ public class Movimentacao : MonoBehaviour
         andando = false;
         if(trocadorDeSalasClicado)
         {
-            trocadorDeSalasClicado.Trocar(this);
+            trocadorDeSalasClicado.Trocar();
         }
     }
 

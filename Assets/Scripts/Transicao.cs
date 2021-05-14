@@ -32,6 +32,7 @@ public class Transicao : MonoBehaviour
 
         fundo.SetActive(true);
         mascara.SetActive(true);
+        Movimentacao.Instance.SetEmTransicao(true);
 
         if(finalDaTransicaoFalsa == null) textoCarregamento.gameObject.SetActive(true);
 
@@ -61,6 +62,7 @@ public class Transicao : MonoBehaviour
         porcentagem = 0;
 
         textoCarregamento.gameObject.SetActive(false);
+        Movimentacao.Instance.SetEmTransicao(false);
 
         if(finalDaTransicaoFalsa != null) finalDaTransicaoFalsa();
 
