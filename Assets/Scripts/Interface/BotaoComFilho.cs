@@ -9,7 +9,6 @@ public class BotaoComFilho : Botao
     public override void Clicar()
     {
         filho.SetActive(!filho.activeSelf);
-        base.Clicar();
     }
 
     public void Fechar()

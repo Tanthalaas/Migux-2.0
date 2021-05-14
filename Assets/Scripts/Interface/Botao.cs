@@ -9,6 +9,10 @@ public class Botao : MonoBehaviour
     Vector2 mouseOffset;
 
     public virtual void Clicar() {}
+    public void BloquearMovimentacao()
+    {
+        Movimentacao.Instance.BloquearMovimentacao();
+    }
 
     public void ComecarArrastamento()
     {

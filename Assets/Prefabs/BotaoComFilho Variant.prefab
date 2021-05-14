@@ -77,12 +77,20 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 8419057789838197413}
     - target: {fileID: 1126202676380247412, guid: a33d8dc6ed80bc544a8a6d5f38380da9, type: 3}
+      propertyPath: m_Delegates.Array.data[2].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 8419057789838197413}
+    - target: {fileID: 1126202676380247412, guid: a33d8dc6ed80bc544a8a6d5f38380da9, type: 3}
       propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: Arrastar
       objectReference: {fileID: 0}
     - target: {fileID: 1126202676380247412, guid: a33d8dc6ed80bc544a8a6d5f38380da9, type: 3}
       propertyPath: m_Delegates.Array.data[1].callback.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: ComecarArrastamento
+      objectReference: {fileID: 0}
+    - target: {fileID: 1126202676380247412, guid: a33d8dc6ed80bc544a8a6d5f38380da9, type: 3}
+      propertyPath: m_Delegates.Array.data[2].callback.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: BloquearMovimentacao
       objectReference: {fileID: 0}
     - target: {fileID: 1126202676380247414, guid: a33d8dc6ed80bc544a8a6d5f38380da9, type: 3}
       propertyPath: m_Pivot.x

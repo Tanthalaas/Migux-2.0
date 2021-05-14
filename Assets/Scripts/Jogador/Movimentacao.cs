@@ -19,7 +19,7 @@ public class Movimentacao : MonoBehaviour
         Instance = this;
     }
 
-    public void BloquearAndada()
+    public void BloquearMovimentacao()
     {
         podeAndar = false;
     }
@@ -27,11 +27,6 @@ public class Movimentacao : MonoBehaviour
     public void SetEmTransicao(bool emTransicao)
     {
         this.emTransicao = emTransicao;
-    }
-
-    void Update()
-    {
-        podeAndar = true;
     }
 
     void LateUpdate()
@@ -87,6 +82,7 @@ public class Movimentacao : MonoBehaviour
                     .OnComplete(OnAndarComplete);
             }
         }
+        podeAndar = true;
     }
 
     void OnAndarComplete()
