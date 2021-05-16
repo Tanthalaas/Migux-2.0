@@ -9,7 +9,7 @@ public class Movimentacao : MonoBehaviour
     [SerializeField] Personagem personagem;
     [SerializeField] float velocidade;
     [SerializeField] float velocidadeDeSkate;
-    bool andando, podeAndar, emTransicao;
+    bool andando, podeAndar;
     [SerializeField] bool usandoSkate;
     TrocaSalas trocadorDeSalasClicado;
     [SerializeField] float multiplicadorDeVelocidadeAtual;
@@ -22,11 +22,6 @@ public class Movimentacao : MonoBehaviour
     public void BloquearMovimentacao()
     {
         podeAndar = false;
-    }
-
-    public void SetEmTransicao(bool emTransicao)
-    {
-        this.emTransicao = emTransicao;
     }
 
     void LateUpdate()
@@ -59,7 +54,7 @@ public class Movimentacao : MonoBehaviour
 
     void AndarAoClicar()
     {
-        if(Input.GetMouseButtonDown(0) && podeAndar && !emTransicao)
+        if(Input.GetMouseButtonDown(0) && podeAndar && !Transicao.Instance.EmTransicao())
         {
             OlharProMouse(true);
             andando = true;

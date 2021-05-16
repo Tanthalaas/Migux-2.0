@@ -11,7 +11,7 @@ public class Transicao : MonoBehaviour
     [SerializeField] GameObject mascara, fundo;
     [SerializeField] TextMeshPro textoCarregamento;
     [SerializeField] float tempoDeTransicao;
-    bool falsaTransicao;
+    bool falsaTransicao, emTransicao;
     float porcentagem;
     Action finalDaTransicaoFalsa;
 
@@ -28,11 +28,13 @@ public class Transicao : MonoBehaviour
 
     public void Carregar(TweenCallback aoTransicionar, Action finalDaTransicaoFalsa = null)
     {
+        if(emTransicao) return;
+
         this.finalDaTransicaoFalsa = finalDaTransicaoFalsa;
 
         fundo.SetActive(true);
         mascara.SetActive(true);
-        Movimentacao.Instance.SetEmTransicao(true);
+        SetEmTransicao(true);
 
         if(finalDaTransicaoFalsa == null) textoCarregamento.gameObject.SetActive(true);
 
@@ -62,14 +64,19 @@ public class Transicao : MonoBehaviour
         porcentagem = 0;
 
         textoCarregamento.gameObject.SetActive(false);
-        Movimentacao.Instance.SetEmTransicao(false);
 
         if(finalDaTransicaoFalsa != null) finalDaTransicaoFalsa();
 
         mascara.transform
             .DOScale(Vector3.one * 1.1f, tempoDeTransicao)
             .SetUpdate(true)
-            .OnComplete(OcultarMascara);
+            .OnComplete(AoTerminarAnimacaoDeTransicao);
+    }
+
+    void AoTerminarAnimacaoDeTransicao()
+    {
+        OcultarMascara();
+        SetEmTransicao(false);
     }
 
     //Economia de recursos
@@ -78,4 +85,11 @@ public class Transicao : MonoBehaviour
         fundo.SetActive(false);
         mascara.SetActive(false);
     }
+
+    public void SetEmTransicao(bool valor)
+    {
+        emTransicao = valor;
+    }
+
+    public bool EmTransicao() => emTransicao;
 }
