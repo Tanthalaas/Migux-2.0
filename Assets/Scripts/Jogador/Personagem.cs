@@ -14,36 +14,18 @@ public class Personagem : MonoBehaviour
     [SerializeField] PersonagemBase.Sexo sexoInicial;
     [SerializeField] Criatura criaturaInicial;
 
-    private void Start() 
+    public void SelecionarCriatura(string criatura)
     {
-        SelecionarCriatura(criaturaInicial);
-        SelecionarSexo(sexoInicial);
-        SelecionarCores(corInicial1, corInicial2);
-    }
+        Dictionary<string, PersonagemBase> seletor = new Dictionary<string, PersonagemBase>();
 
-    public void SelecionarCriatura(Criatura criatura)
-    {
-        switch(criatura) 
-        {
-            case Criatura.AguaViva:
-                personagemSelecionado = aguaViva;
-                break;
-            case Criatura.CavaloMarinho:
-                personagemSelecionado = cavaloMarinho;
-                break;
-            case Criatura.Estrela:
-                personagemSelecionado = estrela;
-                break;
-            case Criatura.Peixe:
-                personagemSelecionado = peixe;
-                break;
-            case Criatura.Polvo:
-                personagemSelecionado = polvo;
-                break;
-            case Criatura.Tubarao:
-                personagemSelecionado = tubarao;
-                break;
-        }
+        seletor.Add("Agua Viva", aguaViva);
+        seletor.Add("Cavalo Marinho", cavaloMarinho);
+        seletor.Add("Estrela", estrela);
+        seletor.Add("Peixe", peixe);
+        seletor.Add("Polvo", polvo);
+        seletor.Add("Tubarao", tubarao);
+
+        personagemSelecionado = seletor[criatura];
 
         if(personagemSelecionado != aguaViva) Destroy(aguaViva.gameObject);
         if(personagemSelecionado != cavaloMarinho) Destroy(cavaloMarinho.gameObject);
@@ -58,9 +40,16 @@ public class Personagem : MonoBehaviour
         personagemSelecionado.SelecionarCores(corPrimaria, corSecundaria);
     }
 
-    public void SelecionarSexo(PersonagemBase.Sexo sexo)
+    public void SelecionarSexo(string sexo)
     {
-        personagemSelecionado.SelecionarSexo(sexo);
+        PersonagemBase.Sexo sexoSelecionado = 
+            sexo == "Masculino" 
+            ? 
+            PersonagemBase.Sexo.Masculino 
+            : 
+            PersonagemBase.Sexo.Feminino;
+    
+        personagemSelecionado.SelecionarSexo(sexoSelecionado);
     }
 
     public void MostrarFrente()

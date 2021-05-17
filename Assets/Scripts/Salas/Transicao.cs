@@ -11,7 +11,7 @@ public class Transicao : MonoBehaviour
     [SerializeField] GameObject mascara, fundo;
     [SerializeField] TextMeshPro textoCarregamento;
     [SerializeField] float tempoDeTransicao;
-    bool falsaTransicao, emTransicao;
+    bool emTransicao;
     float porcentagem;
     Action finalDaTransicaoFalsa;
 
@@ -46,7 +46,6 @@ public class Transicao : MonoBehaviour
 
     public void IniciarFalsoCarregamento()
     {
-        falsaTransicao = true;
         porcentagem = 100;
     }
 
@@ -60,7 +59,6 @@ public class Transicao : MonoBehaviour
 
     void TerminarCarregamento()
     {
-        falsaTransicao = false;
         porcentagem = 0;
 
         textoCarregamento.gameObject.SetActive(false);
