@@ -16,7 +16,7 @@ public class Conexao : MonoBehaviour
     [DllImport("__Internal")]
     private static extern void IniciarSocketIO(string ip);
     [DllImport("__Internal")]
-    private static extern void EnviarRegistroSocketIO(string ip);
+    private static extern void EnviarRegistroSocketIO(string json);
     #else
     SocketIO client;
     #endif

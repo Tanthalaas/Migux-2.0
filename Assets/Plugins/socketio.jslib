@@ -17,8 +17,7 @@ mergeInto(LibraryManager.library, {
             window.unityInstance.SendMessage('Conexao', 'JogadorSaiuDaSala', JSON.stringify(response));
         });
     },
-
-    HelloString: function(str) {
-        window.io(Pointer_stringify(str));
-    },
+    EnviarRegistroSocketIO: function(json) {
+        window.socket.emit(Pointer_stringify(json));
+    }
 });
