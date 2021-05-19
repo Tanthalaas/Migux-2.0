@@ -363,6 +363,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   escalaDoJogador: 1
+  velocidade: 1
 --- !u!4 &57318197
 Transform:
   m_ObjectHideFlags: 0
@@ -1875,6 +1876,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   escalaDoJogador: 1
+  velocidade: 1
 --- !u!4 &521157368
 Transform:
   m_ObjectHideFlags: 0
@@ -1921,6 +1923,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   escalaDoJogador: 1
+  velocidade: 1
 --- !u!4 &521586336
 Transform:
   m_ObjectHideFlags: 0
@@ -2126,6 +2129,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   escalaDoJogador: 1
+  velocidade: 1
 --- !u!4 &583192900
 Transform:
   m_ObjectHideFlags: 0
@@ -2422,6 +2426,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   escalaDoJogador: 1
+  velocidade: 1
 --- !u!4 &705353799
 Transform:
   m_ObjectHideFlags: 0
@@ -6751,6 +6756,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   escalaDoJogador: 1
+  velocidade: 1
 --- !u!1 &1585066174
 GameObject:
   m_ObjectHideFlags: 0
@@ -7139,6 +7145,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   escalaDoJogador: 0.5
+  velocidade: 0.5
 --- !u!1 &1628980635
 GameObject:
   m_ObjectHideFlags: 0
@@ -7347,6 +7354,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   escalaDoJogador: 1
+  velocidade: 1
 --- !u!4 &1632038958
 Transform:
   m_ObjectHideFlags: 0
@@ -7559,6 +7567,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   escalaDoJogador: 2
+  velocidade: 2
 --- !u!4 &1803197623
 Transform:
   m_ObjectHideFlags: 0
@@ -8111,6 +8120,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   escalaDoJogador: 1
+  velocidade: 1
 --- !u!4 &2009275003
 Transform:
   m_ObjectHideFlags: 0

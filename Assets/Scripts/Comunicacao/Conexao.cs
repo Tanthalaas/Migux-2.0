@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-#if UNITY_WEBGL
+#if UNITY_WEBGL && !UNITY_EDITOR
 using System.Runtime.InteropServices;
 #else
 using SocketIOClient;
@@ -10,27 +10,38 @@ using SocketIOClient;
 
 public class Conexao : MonoBehaviour
 {
+    public static Conexao Instance;
     [SerializeField] Personagem jogadorLocal;
     const string ENDERECO_IP = "http://127.0.0.1:3333/";
-    #if UNITY_WEBGL
+    #if UNITY_WEBGL && !UNITY_EDITOR
     [DllImport("__Internal")]
-    private static extern void IniciarSocketIO(string ip);
+    private static extern void ConectarSocketIO();
     [DllImport("__Internal")]
     private static extern void EnviarRegistroSocketIO(string json);
+    [DllImport("__Internal")]
+    private static extern void EnviarMovimentacaoSocketIO(string json);
     #else
     SocketIO client;
     #endif
     // Start is called before the first frame update
     void Start()
     {
+        if(Instance)
+        {
+            Destroy(gameObject);
+            return;
+        }
+
+        Instance = this;
+        DontDestroyOnLoad(gameObject);
         IniciarSocket();
     }
 
     void IniciarSocket()
     {
-        #if UNITY_WEBGL
+        #if UNITY_WEBGL && !UNITY_EDITOR
 
-        IniciarSocketIO(ENDERECO_IP);
+        ConectarSocketIO();
 
         #else
         
@@ -131,11 +142,24 @@ public class Conexao : MonoBehaviour
     public void EnviarRegistro(Jogador jogador)
     {
         string json = JsonUtility.ToJson(jogador);
+        Debug.Log($"Enviando: {json}");
 
-        #if UNITY_WEBGL
+        #if UNITY_WEBGL && !UNITY_EDITOR
         EnviarRegistroSocketIO(json);
         #else
         client.EmitAsync("registrar", json);
+        #endif
+    }
+
+    public void EnviarMovimentacao(Vector2 origem, Vector2 destino)
+    {
+        MovimentacaoModel movimentacao = new MovimentacaoModel(origem, destino);
+        string json = JsonUtility.ToJson(movimentacao);
+
+        #if UNITY_WEBGL && !UNITY_EDITOR
+        EnviarMovimentacaoSocketIO(json);
+        #else
+        client.EmitAsync("movimentacao", json);
         #endif
     }
 }

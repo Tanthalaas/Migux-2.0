@@ -58,12 +58,12 @@ public class Movimentacao : MonoBehaviour
         {
             OlharProMouse(true);
             andando = true;
-            Vector2 position = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            Vector2 destino = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             transform.DOKill();
             if(!usandoSkate)
             {
                 transform
-                    .DOMove(position, Vector2.Distance(position, transform.position) / velocidade / multiplicadorDeVelocidadeAtual)
+                    .DOMove(destino, Vector2.Distance(destino, transform.position) / velocidade / multiplicadorDeVelocidadeAtual)
                     .SetUpdate(true)
                     .SetEase(Ease.Linear)
                     .OnComplete(OnAndarComplete);
@@ -71,11 +71,12 @@ public class Movimentacao : MonoBehaviour
             else 
             {
                 transform
-                    .DOMove(position, Vector2.Distance(position, transform.position) / velocidadeDeSkate / multiplicadorDeVelocidadeAtual)
+                    .DOMove(destino, Vector2.Distance(destino, transform.position) / velocidadeDeSkate / multiplicadorDeVelocidadeAtual)
                     .SetUpdate(true)
                     .SetEase(Ease.OutCubic)
                     .OnComplete(OnAndarComplete);
             }
+            Conexao.Instance.EnviarMovimentacao(transform.position, destino);
         }
         podeAndar = true;
     }

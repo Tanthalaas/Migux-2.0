@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using DG.Tweening;
 
 public class JogadoresManager : MonoBehaviour
 {
@@ -35,7 +36,26 @@ public class JogadoresManager : MonoBehaviour
 
     public void JogadorMovimentou(string json)
     {
-        //TODO: Movimentação multiplayer
+        //TODO: Rotação do jogador
+        MovimentacaoModel movimentacao = JsonUtility.FromJson<MovimentacaoModel>(json);
+        string id = movimentacao.id;
+        
+        Personagem jogador;
+        if(jogadores.TryGetValue(id, out jogador))
+        {
+            Sala salaAtual = TrocaSalas.GetSalaAtual();
+
+            float distancia = Vector2.Distance(movimentacao.origem, movimentacao.destino);
+            float velocidade = Personagem.VELOCIDADE;
+            float multiplicadorDeVelocidade = salaAtual.GetVelocidade();
+
+            jogador.transform.position = movimentacao.origem;
+            jogador.transform.DOKill();
+            jogador.transform
+                    .DOMove(movimentacao.destino, distancia / velocidade / multiplicadorDeVelocidade)
+                    .SetUpdate(true)
+                    .SetEase(Ease.Linear);
+        }
     }
 
     void InstanciarJogador(Jogador jogador)
@@ -45,6 +65,9 @@ public class JogadoresManager : MonoBehaviour
         personagem.SelecionarSexo(jogador.sexo);
         personagem.SelecionarCores(jogador.corPrimaria, jogador.corSecundaria);
         jogadores.Add(jogador.id, personagem);
+
+        float escala = TrocaSalas.GetSalaAtual().GetEscalaDoJogador();
+        personagem.transform.localScale = Vector3.one * escala;
     }
 
     public void ApagarJogador(string id)

@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Personagem : MonoBehaviour
 {
+    public const float VELOCIDADE = 8, VELOCIDADENOSKATE = 10;
     public enum Criatura { AguaViva, CavaloMarinho, Estrela, Peixe, Polvo, Tubarao }
 
     [SerializeField] PersonagemBase aguaViva, cavaloMarinho, estrela, peixe, polvo, tubarao;

@@ -42,4 +42,6 @@ public class TrocaSalas : MonoBehaviour
     {
         salaAtual = sala;
     }
+
+    public static Sala GetSalaAtual() => salaAtual;
 }
