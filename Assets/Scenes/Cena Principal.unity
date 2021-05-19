@@ -403,7 +403,7 @@ GameObject:
   - component: {fileID: 133879433}
   - component: {fileID: 133879432}
   m_Layer: 0
-  m_Name: Intanciador de Jogador
+  m_Name: Conexao
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

@@ -54,21 +54,21 @@ public class Personagem : MonoBehaviour
 
     public void MostrarFrente()
     {
-        personagemSelecionado.MostrarFrente();
+        if(personagemSelecionado) personagemSelecionado.MostrarFrente();
     }
 
     public void MostrarCima(PersonagemBase.Direcao direcao)
     {
-       personagemSelecionado.MostrarCima(direcao);
+        if(personagemSelecionado) personagemSelecionado.MostrarCima(direcao);
     }
 
     public void MostrarLado(PersonagemBase.Direcao direcao)
     {
-        personagemSelecionado.MostrarLado(direcao);
+        if(personagemSelecionado) personagemSelecionado.MostrarLado(direcao);
     }
 
     public void MostrarDiagonal(PersonagemBase.Direcao direcao)
     {
-        personagemSelecionado.MostrarDiagonal(direcao);
+        if(personagemSelecionado) personagemSelecionado.MostrarDiagonal(direcao);
     }
 }
