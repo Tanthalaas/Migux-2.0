@@ -61,7 +61,6 @@ public class Conexao : MonoBehaviour
         client.On("jogador entrou na sala", response => 
         {
             string json = response.GetValue<string>();
-            Debug.Log(json);
             UnityMainThreadDispatcher.Instance().Enqueue(() => 
             {
                 JogadorEntrouNaSala(json);
@@ -71,7 +70,6 @@ public class Conexao : MonoBehaviour
         client.On("jogadores na sala", response => 
         {
             string json = response.GetValue<string>();
-            Debug.Log(json);
             UnityMainThreadDispatcher.Instance().Enqueue(() => 
             {
                 AoTrocarDeSala(json);
@@ -81,7 +79,6 @@ public class Conexao : MonoBehaviour
         client.On("movimentacao", response => 
         {
             string json = response.GetValue<string>();
-            Debug.Log(json);
             UnityMainThreadDispatcher.Instance().Enqueue(() => 
             {
                 ReceberMovimentacao(json);

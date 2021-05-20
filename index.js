@@ -4,15 +4,15 @@ socket.on('connect', () => {
 });
 socket.on('jogador entrou na sala', (response) => {
     console.log(response);
-    window.unity.SendMessage('Conexao', 'JogadorEntrouNaSala', JSON.stringify(response));
+    window.unity.SendMessage('Conexao', 'JogadorEntrouNaSala', response);
 });
 socket.on('jogadores na sala', (response) => {
     console.log(response);
-    window.unity.SendMessage('Conexao', 'AoTrocarDeSala', JSON.stringify(response));
+    window.unity.SendMessage('Conexao', 'AoTrocarDeSala', response);
 });
 socket.on('movimentacao', (response) => {
-    window.unity.SendMessage('Conexao', 'ReceberMovimentacao', JSON.stringify(response));
+    window.unity.SendMessage('Conexao', 'ReceberMovimentacao', response);
 });
 socket.on('jogador saiu da sala', (response) => {
-    window.unity.SendMessage('Conexao', 'JogadorSaiuDaSala', JSON.stringify(response));
+    window.unity.SendMessage('Conexao', 'JogadorSaiuDaSala', response);
 });
