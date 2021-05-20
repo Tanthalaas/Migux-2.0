@@ -55,6 +55,8 @@ public class JogadoresManager : MonoBehaviour
                     .DOMove(movimentacao.destino, distancia / velocidade / multiplicadorDeVelocidade)
                     .SetUpdate(true)
                     .SetEase(Ease.Linear);
+            
+            jogador.OlharParaPonto(movimentacao.destino);
         }
     }
 
