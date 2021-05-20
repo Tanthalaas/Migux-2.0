@@ -95,41 +95,8 @@ public class Movimentacao : MonoBehaviour
         if(!andando || forcar)
         {
             //TODO: Lógica de olhar para o mouse
-            Vector2 direcaoDoMouse = Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position;
-            float angulo = Vector2.SignedAngle(Vector2.right, direcaoDoMouse);
-
-            if(angulo >= 135f)
-            {
-                personagem.MostrarLado(PersonagemBase.Direcao.Esquerda);
-            } 
-            else if(angulo >= 90f) 
-            {
-                personagem.MostrarCima(PersonagemBase.Direcao.Esquerda);
-            }
-            else if(angulo >= 45f)
-            {
-                personagem.MostrarCima(PersonagemBase.Direcao.Direita);
-            }
-            else if(angulo >= -36f)
-            {
-                personagem.MostrarLado(PersonagemBase.Direcao.Direita);
-            }
-            else if(angulo >= -72f)
-            {
-                personagem.MostrarDiagonal(PersonagemBase.Direcao.Direita);
-            }
-            else if(angulo >= -108f)
-            {
-                personagem.MostrarFrente();
-            }
-            else if(angulo >= -144f)
-            {
-                personagem.MostrarDiagonal(PersonagemBase.Direcao.Esquerda);
-            }
-            else 
-            {
-                personagem.MostrarLado(PersonagemBase.Direcao.Esquerda);
-            }
+            Vector2 posicaoMouse = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            personagem.OlharParaPonto(posicaoMouse);
         }
     }
 

@@ -53,23 +53,62 @@ public class Personagem : MonoBehaviour
         personagemSelecionado.SelecionarSexo(sexoSelecionado);
     }
 
-    public void MostrarFrente()
+    void MostrarFrente()
     {
         if(personagemSelecionado) personagemSelecionado.MostrarFrente();
     }
 
-    public void MostrarCima(PersonagemBase.Direcao direcao)
+    void MostrarCima(PersonagemBase.Direcao direcao)
     {
         if(personagemSelecionado) personagemSelecionado.MostrarCima(direcao);
     }
 
-    public void MostrarLado(PersonagemBase.Direcao direcao)
+    void MostrarLado(PersonagemBase.Direcao direcao)
     {
         if(personagemSelecionado) personagemSelecionado.MostrarLado(direcao);
     }
 
-    public void MostrarDiagonal(PersonagemBase.Direcao direcao)
+    void MostrarDiagonal(PersonagemBase.Direcao direcao)
     {
         if(personagemSelecionado) personagemSelecionado.MostrarDiagonal(direcao);
+    }
+
+    public void OlharParaPonto(Vector3 ponto)
+    {
+        Vector2 direcao = ponto - transform.position;
+        float angulo = Vector2.SignedAngle(Vector2.right, direcao);
+
+        if(angulo >= 135f)
+        {
+            MostrarLado(PersonagemBase.Direcao.Esquerda);
+        } 
+        else if(angulo >= 90f) 
+        {
+            MostrarCima(PersonagemBase.Direcao.Esquerda);
+        }
+        else if(angulo >= 45f)
+        {
+            MostrarCima(PersonagemBase.Direcao.Direita);
+        }
+        else if(angulo >= -36f)
+        {
+            MostrarLado(PersonagemBase.Direcao.Direita);
+        }
+        else if(angulo >= -72f)
+        {
+            MostrarDiagonal(PersonagemBase.Direcao.Direita);
+        }
+        else if(angulo >= -108f)
+        {
+            MostrarFrente();
+        }
+        else if(angulo >= -144f)
+        {
+            MostrarDiagonal(PersonagemBase.Direcao.Esquerda);
+        }
+        else 
+        {
+            MostrarLado(PersonagemBase.Direcao.Esquerda);
+        }
     }
 }
