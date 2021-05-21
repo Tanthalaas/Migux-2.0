@@ -12,7 +12,9 @@ public class Conexao : MonoBehaviour
 {
     public static Conexao Instance;
     [SerializeField] Personagem jogadorLocal;
-    const string ENDERECO_IP = "http://127.0.0.1:3333/";
+    const string ENDERECO_EXTERNO = "https://miguxservidor.herokuapp.com/";
+    const string ENDERECO_LOCAL ="http://127.0.0.1:3333/";
+    string enderecoIp;
     #if UNITY_WEBGL && !UNITY_EDITOR
     [DllImport("__Internal")]
     private static extern void ConectarSocketIO();
@@ -20,6 +22,10 @@ public class Conexao : MonoBehaviour
     private static extern void EnviarRegistroSocketIO(string json);
     [DllImport("__Internal")]
     private static extern void EnviarMovimentacaoSocketIO(string json);
+    [DllImport("__Internal")]
+    private static extern void EnviarTrocaDeSalaSocketIO(string sala);
+    [DllImport("__Internal")]
+    private static extern void EnviarChatSocketIO(string json);
     #else
     SocketIO client;
     #endif
@@ -40,12 +46,10 @@ public class Conexao : MonoBehaviour
     void IniciarSocket()
     {
         #if UNITY_WEBGL && !UNITY_EDITOR
-
         ConectarSocketIO();
-
         #else
-        
-        client = new SocketIO(ENDERECO_IP, new SocketIOOptions
+        enderecoIp = ENDERECO_EXTERNO;
+        client = new SocketIO(enderecoIp, new SocketIOOptions
         {
             EIO = 4
         });
@@ -82,6 +86,14 @@ public class Conexao : MonoBehaviour
             UnityMainThreadDispatcher.Instance().Enqueue(() => 
             {
                 ReceberMovimentacao(json);
+            }); 
+        });
+
+        client.On("chat", response => {
+            string json = response.GetValue<string>();
+            UnityMainThreadDispatcher.Instance().Enqueue(() => 
+            {
+                ReceberChat(json);
             }); 
         });
 
@@ -134,12 +146,16 @@ public class Conexao : MonoBehaviour
     {
         JogadoresManager.Instance.JogadorMovimentou(json);
     }
+
+    public void ReceberChat(string json)
+    {
+        JogadoresManager.Instance.JogadorMandouChat(json);
+    }
     #endregion
 
     public void EnviarRegistro(Jogador jogador)
     {
         string json = JsonUtility.ToJson(jogador);
-        Debug.Log($"Enviando: {json}");
 
         #if UNITY_WEBGL && !UNITY_EDITOR
         EnviarRegistroSocketIO(json);
@@ -159,4 +175,27 @@ public class Conexao : MonoBehaviour
         client.EmitAsync("movimentacao", json);
         #endif
     }
+
+    public void EnviarTrocaDeSala(string sala)
+    {
+        #if UNITY_WEBGL && !UNITY_EDITOR
+        EnviarTrocaDeSalaSocketIO(sala);
+        #else
+        client.EmitAsync("trocar sala", sala);
+        #endif
+    }
+
+    public void EnviarMensagem(string mensagem)
+    {
+        MensagemModel mensagemModel = new MensagemModel(mensagem);
+        string json = JsonUtility.ToJson(mensagemModel);
+
+        #if UNITY_WEBGL && !UNITY_EDITOR
+        EnviarChatSocketIO(json);
+        #else
+        client.EmitAsync("chat", json);
+        #endif
+    }
+
+    public Personagem GetJogadorLocal() => jogadorLocal;
 }

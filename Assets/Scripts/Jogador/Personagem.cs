@@ -1,9 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class Personagem : MonoBehaviour
 {
+    [SerializeField] GameObject balaoDeMensagem;
+    [SerializeField] TextMeshPro mensagemTexto;
     public const float VELOCIDADE = 8, VELOCIDADENOSKATE = 10;
     public enum Criatura { AguaViva, CavaloMarinho, Estrela, Peixe, Polvo, Tubarao }
 
@@ -110,5 +113,25 @@ public class Personagem : MonoBehaviour
         {
             MostrarLado(PersonagemBase.Direcao.Esquerda);
         }
+    }
+
+    [ContextMenu("Teste mensagem")]
+    public void TesteMensagem()
+    {
+        MostrarMensagem("Com este commit, o módulo de recursão paralela deletou todas as entradas do nosso servidor de DNS.");
+    }
+
+    public void MostrarMensagem(string mensagem)
+    {
+        StopAllCoroutines();
+        balaoDeMensagem.SetActive(true);
+        mensagemTexto.text = mensagem;
+        StartCoroutine(EsperarEOcultarBalao());
+    }
+
+    IEnumerator EsperarEOcultarBalao()
+    {
+        yield return new WaitForSecondsRealtime(5);
+        balaoDeMensagem.SetActive(false);
     }
 }

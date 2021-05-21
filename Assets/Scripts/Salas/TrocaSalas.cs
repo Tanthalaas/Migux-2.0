@@ -36,6 +36,10 @@ public class TrocaSalas : MonoBehaviour
         jogador.transform.position = posicaoDestino;
         jogador.SetMultiplicadorDeVelocidade(multiplicadorDeVelocidade);
 
+        JogadoresManager.Instance.ApagarJogadores();
+        
+        Conexao.Instance.EnviarTrocaDeSala(salaAtual.gameObject.name);
+
     }
 
     public static void SetSalaAtual(Sala sala)

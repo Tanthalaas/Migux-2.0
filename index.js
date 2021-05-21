@@ -1,18 +1,21 @@
-var socket = io('http://127.0.0.1:3333/', { autoConnect: false });
+var socket = io('https://miguxservidor.herokuapp.com/', { autoConnect: false });
 socket.on('connect', () => {
     unity.SendMessage('Conexao', 'AoConectar');
 });
 socket.on('jogador entrou na sala', (response) => {
     console.log(response);
-    window.unity.SendMessage('Conexao', 'JogadorEntrouNaSala', response);
+    unity.SendMessage('Conexao', 'JogadorEntrouNaSala', response);
 });
 socket.on('jogadores na sala', (response) => {
     console.log(response);
-    window.unity.SendMessage('Conexao', 'AoTrocarDeSala', response);
+    unity.SendMessage('Conexao', 'AoTrocarDeSala', response);
 });
 socket.on('movimentacao', (response) => {
-    window.unity.SendMessage('Conexao', 'ReceberMovimentacao', response);
+    unity.SendMessage('Conexao', 'ReceberMovimentacao', response);
+});
+socket.on('chat', (response) => {
+    unity.SendMessage('Conexao', 'ReceberChat', response);
 });
 socket.on('jogador saiu da sala', (response) => {
-    window.unity.SendMessage('Conexao', 'JogadorSaiuDaSala', response);
+    unity.SendMessage('Conexao', 'JogadorSaiuDaSala', response);
 });

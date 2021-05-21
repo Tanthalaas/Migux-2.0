@@ -7,5 +7,11 @@ mergeInto(LibraryManager.library, {
     },
     EnviarMovimentacaoSocketIO: function(json) {
         socket.emit('movimentacao', Pointer_stringify(json));
+    },
+    EnviarTrocaDeSalaSocketIO: function(sala) {
+        socket.emit('trocar sala', Pointer_stringify(sala));
+    },
+    EnviarChatSocketIO: function(json) {
+        socket.emit('chat', Pointer_stringify(json));
     }
 });

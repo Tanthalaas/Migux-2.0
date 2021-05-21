@@ -60,8 +60,23 @@ public class JogadoresManager : MonoBehaviour
         }
     }
 
+    public void JogadorMandouChat(string json)
+    {
+        MensagemModel mensagem = JsonUtility.FromJson<MensagemModel>(json);
+        string id = mensagem.id;
+
+        Personagem jogador;
+        if(jogadores.TryGetValue(id, out jogador))
+        {
+            jogador.MostrarMensagem(mensagem.texto);
+        }
+    }
+
     void InstanciarJogador(Jogador jogador)
     {
+        //TODO: Investigar duplicação de jogadores
+        if(jogadores.ContainsKey(jogador.id)) return;
+
         Personagem personagem = Instantiate(personagemPrefab);
         personagem.SelecionarCriatura(jogador.especie);
         personagem.SelecionarSexo(jogador.sexo);
@@ -80,5 +95,16 @@ public class JogadoresManager : MonoBehaviour
             jogadores.Remove(id);
             Destroy(personagem.gameObject);
         }
+    }
+
+    public void ApagarJogadores()
+    {
+        foreach(Personagem jogador in jogadores.Values)
+        {
+            Destroy(jogador.gameObject);
+        }
+
+        jogadores = new Dictionary<string, Personagem>();
+        Debug.Log(jogadores.Keys.Count);
     }
 }

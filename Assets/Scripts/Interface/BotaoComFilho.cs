@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class BotaoComFilho : Botao
 {
-    [SerializeField] GameObject filho;
+    [SerializeField] protected GameObject filho;
     
     public override void Clicar()
     {
