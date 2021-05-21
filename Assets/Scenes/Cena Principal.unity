@@ -455,7 +455,7 @@ MonoBehaviour:
   m_OnSelect:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1590779753}
         m_TargetAssemblyTypeName: Botao, Assembly-CSharp
         m_MethodName: BloquearMovimentacao
         m_Mode: 1
@@ -7014,7 +7014,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1147317854810379043, guid: 116173ce0a7114d448d455f2131c8cdb, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -34.529
+      value: -34.52899
       objectReference: {fileID: 0}
     - target: {fileID: 1147317854810379043, guid: 116173ce0a7114d448d455f2131c8cdb, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -8531,7 +8531,7 @@ GameObject:
   - component: {fileID: 2009275003}
   - component: {fileID: 2009275002}
   m_Layer: 0
-  m_Name: Breacho Fora
+  m_Name: Brecho Fora
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
