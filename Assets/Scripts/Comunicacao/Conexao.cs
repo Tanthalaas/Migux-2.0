@@ -124,6 +124,8 @@ public class Conexao : MonoBehaviour
         jogadorLocal.SelecionarCores(jogador.corPrimaria, jogador.corSecundaria);
 
         EnviarRegistro(jogador);
+
+        Mundo.MundoAtual.IniciarMusicaDeFundo();
     }
 
     public void JogadorEntrouNaSala(string json)

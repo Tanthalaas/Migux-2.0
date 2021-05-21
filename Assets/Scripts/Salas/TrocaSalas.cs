@@ -40,6 +40,7 @@ public class TrocaSalas : MonoBehaviour
         
         Conexao.Instance.EnviarTrocaDeSala(salaAtual.gameObject.name);
 
+        Mundo.MundoAtual.TocarFundo(salaAtual.GetMusicaDeFundo());
     }
 
     public static void SetSalaAtual(Sala sala)

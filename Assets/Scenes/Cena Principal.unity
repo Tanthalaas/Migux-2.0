@@ -216,6 +216,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7926977}
   - component: {fileID: 7926976}
+  - component: {fileID: 7926978}
   m_Layer: 0
   m_Name: Mundo Aquatico
   m_TagString: Untagged
@@ -236,6 +237,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   salaInicial: {fileID: 1618809840}
+  tocadorDeFundo: {fileID: 7926978}
 --- !u!4 &7926977
 Transform:
   m_ObjectHideFlags: 0
@@ -250,6 +252,102 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!82 &7926978
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7926975}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: a4fbf3f0ab65a3d408d2daebb8bf7133, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 1
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &35427989
 GameObject:
   m_ObjectHideFlags: 0
@@ -364,6 +462,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   escalaDoJogador: 1
   velocidade: 1
+  musicaDeFundo: {fileID: 8300000, guid: af10846568b5c0a47bc697ee5cffca9a, type: 3}
 --- !u!4 &57318197
 Transform:
   m_ObjectHideFlags: 0
@@ -1877,6 +1976,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   escalaDoJogador: 1
   velocidade: 1
+  musicaDeFundo: {fileID: 8300000, guid: a4fbf3f0ab65a3d408d2daebb8bf7133, type: 3}
 --- !u!4 &521157368
 Transform:
   m_ObjectHideFlags: 0
@@ -1924,6 +2024,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   escalaDoJogador: 1
   velocidade: 1
+  musicaDeFundo: {fileID: 8300000, guid: a4fbf3f0ab65a3d408d2daebb8bf7133, type: 3}
 --- !u!4 &521586336
 Transform:
   m_ObjectHideFlags: 0
@@ -2130,6 +2231,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   escalaDoJogador: 1
   velocidade: 1
+  musicaDeFundo: {fileID: 8300000, guid: a4fbf3f0ab65a3d408d2daebb8bf7133, type: 3}
 --- !u!4 &583192900
 Transform:
   m_ObjectHideFlags: 0
@@ -2427,6 +2529,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   escalaDoJogador: 1
   velocidade: 1
+  musicaDeFundo: {fileID: 8300000, guid: a4fbf3f0ab65a3d408d2daebb8bf7133, type: 3}
 --- !u!4 &705353799
 Transform:
   m_ObjectHideFlags: 0
@@ -6188,6 +6291,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   escalaDoJogador: 1
   velocidade: 1
+  musicaDeFundo: {fileID: 8300000, guid: a4fbf3f0ab65a3d408d2daebb8bf7133, type: 3}
 --- !u!1 &1585066174
 GameObject:
   m_ObjectHideFlags: 0
@@ -6577,6 +6681,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   escalaDoJogador: 0.5
   velocidade: 0.5
+  musicaDeFundo: {fileID: 8300000, guid: a4fbf3f0ab65a3d408d2daebb8bf7133, type: 3}
 --- !u!1 &1628980635
 GameObject:
   m_ObjectHideFlags: 0
@@ -6786,6 +6891,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   escalaDoJogador: 1
   velocidade: 1
+  musicaDeFundo: {fileID: 8300000, guid: a4fbf3f0ab65a3d408d2daebb8bf7133, type: 3}
 --- !u!4 &1632038958
 Transform:
   m_ObjectHideFlags: 0
@@ -6999,6 +7105,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   escalaDoJogador: 2
   velocidade: 2
+  musicaDeFundo: {fileID: 8300000, guid: af10846568b5c0a47bc697ee5cffca9a, type: 3}
 --- !u!4 &1803197623
 Transform:
   m_ObjectHideFlags: 0
@@ -7552,6 +7659,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   escalaDoJogador: 1
   velocidade: 1
+  musicaDeFundo: {fileID: 8300000, guid: a4fbf3f0ab65a3d408d2daebb8bf7133, type: 3}
 --- !u!4 &2009275003
 Transform:
   m_ObjectHideFlags: 0
