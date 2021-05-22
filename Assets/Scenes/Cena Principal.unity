@@ -4833,7 +4833,7 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 0}
+        - m_Target: {fileID: 1590779753}
           m_TargetAssemblyTypeName: Botao, Assembly-CSharp
           m_MethodName: BloquearMovimentacao
           m_Mode: 1
@@ -4889,7 +4889,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1590779753}
         m_TargetAssemblyTypeName: BotaoComFilho, Assembly-CSharp
         m_MethodName: Fechar
         m_Mode: 1
