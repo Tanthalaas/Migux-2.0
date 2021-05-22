@@ -7742,7 +7742,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   escalaDoJogador: 2
   velocidade: 2
-  musicaDeFundo: {fileID: 8300000, guid: af10846568b5c0a47bc697ee5cffca9a, type: 3}
+  musicaDeFundo: {fileID: 8300000, guid: 362bd2e4b0ee67c47a2cc2c8260f7e6c, type: 3}
 --- !u!4 &1803197623
 Transform:
   m_ObjectHideFlags: 0
