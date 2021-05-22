@@ -84,7 +84,7 @@ public class JogadoresManager : MonoBehaviour
         jogadores.Add(jogador.id, personagem);
 
         float escala = TrocaSalas.GetSalaAtual().GetEscalaDoJogador();
-        personagem.transform.localScale = Vector3.one * escala;
+        personagem.DefinirEscala(escala);
     }
 
     public void ApagarJogador(string id)

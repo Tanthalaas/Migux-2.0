@@ -31,8 +31,9 @@ public class TrocaSalas : MonoBehaviour
         salaAtual = salaDestino;
 
         Movimentacao jogador = Movimentacao.Instance;
+        Personagem personagem = jogador.GetComponent<Personagem>();
 
-        jogador.transform.localScale = Vector3.one * salaDestino.GetEscalaDoJogador();
+        personagem.DefinirEscala(salaDestino.GetEscalaDoJogador());
         jogador.transform.position = posicaoDestino;
         jogador.SetMultiplicadorDeVelocidade(multiplicadorDeVelocidade);
 

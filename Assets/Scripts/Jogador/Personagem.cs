@@ -134,4 +134,10 @@ public class Personagem : MonoBehaviour
         yield return new WaitForSecondsRealtime(5);
         balaoDeMensagem.SetActive(false);
     }
+
+    public void DefinirEscala(float escala)
+    {
+        transform.localScale = Vector3.one * escala;
+        balaoDeMensagem.transform.localScale = Vector3.one * (1/escala) * 0.3f;
+    }
 }
