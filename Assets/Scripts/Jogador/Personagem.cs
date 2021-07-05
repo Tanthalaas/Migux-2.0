@@ -132,5 +132,6 @@ public class Personagem : MonoBehaviour
     {
         transform.localScale = Vector3.one * escala;
         balaoDeMensagem.transform.localScale = Vector3.one * (1/escala) * 0.3f;
+        nomeTexto.transform.localScale = Vector3.one * (1/escala) * 0.5f;
     }
 }
