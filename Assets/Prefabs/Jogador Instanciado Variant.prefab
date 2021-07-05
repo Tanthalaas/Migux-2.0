@@ -9,7 +9,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 8261194319516298392, guid: 61e546e43da4f5f4c968dde05b5f26db, type: 3}
       propertyPath: m_Name
-      value: Jogador Instanciado
+      value: Jogador Instanciado Variant
       objectReference: {fileID: 0}
     - target: {fileID: 8261194319516298398, guid: 61e546e43da4f5f4c968dde05b5f26db, type: 3}
       propertyPath: m_RootOrder

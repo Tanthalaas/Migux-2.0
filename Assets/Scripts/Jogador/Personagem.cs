@@ -6,28 +6,16 @@ using TMPro;
 public class Personagem : MonoBehaviour
 {
     [SerializeField] GameObject balaoDeMensagem;
-    [SerializeField] TextMeshPro mensagemTexto;
+    [SerializeField] TextMeshPro mensagemTexto, nomeTexto;
     public const float VELOCIDADE = 8, VELOCIDADENOSKATE = 10;
     public enum Criatura { AguaViva, CavaloMarinho, Estrela, Peixe, Polvo, Tubarao }
 
     [SerializeField] PersonagemBase aguaViva, cavaloMarinho, estrela, peixe, polvo, tubarao;
     PersonagemBase personagemSelecionado;
 
-    [Header("Dados iniciais")]
-    [SerializeField] Color corInicial1, corInicial2;
-    [SerializeField] PersonagemBase.Sexo sexoInicial;
-    [SerializeField] Criatura criaturaInicial;
-
-    public void SelecionarCriatura(string criatura)
+    public void SelecionarCriatura(int criatura)
     {
-        Dictionary<string, PersonagemBase> seletor = new Dictionary<string, PersonagemBase>();
-
-        seletor.Add("Agua Viva", aguaViva);
-        seletor.Add("Cavalo Marinho", cavaloMarinho);
-        seletor.Add("Estrela", estrela);
-        seletor.Add("Peixe", peixe);
-        seletor.Add("Polvo", polvo);
-        seletor.Add("Tubarao", tubarao);
+        PersonagemBase[] seletor = {tubarao, peixe, aguaViva, polvo, cavaloMarinho, estrela};
 
         personagemSelecionado = seletor[criatura];
 
@@ -44,16 +32,21 @@ public class Personagem : MonoBehaviour
         personagemSelecionado.SelecionarCores(corPrimaria, corSecundaria);
     }
 
-    public void SelecionarSexo(string sexo)
+    public void SelecionarSexo(int sexo)
     {
         PersonagemBase.Sexo sexoSelecionado = 
-            sexo == "Masculino" 
+            sexo == 0 
             ? 
             PersonagemBase.Sexo.Masculino 
             : 
             PersonagemBase.Sexo.Feminino;
     
         personagemSelecionado.SelecionarSexo(sexoSelecionado);
+    }
+
+    public void SelecionarNome(string nome)
+    {
+        nomeTexto.text = nome;
     }
 
     void MostrarFrente()

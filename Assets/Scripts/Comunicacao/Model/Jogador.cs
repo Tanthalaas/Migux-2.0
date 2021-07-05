@@ -5,7 +5,8 @@ using UnityEngine;
 [Serializable]
 public class Jogador: Id
 {
-    public string especie, sala, sexo;
+    public string sala, nome;
+    public int especie, sexo;
     public Color corPrimaria, corSecundaria;
 }
 

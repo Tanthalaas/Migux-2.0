@@ -81,6 +81,7 @@ public class JogadoresManager : MonoBehaviour
         personagem.SelecionarCriatura(jogador.especie);
         personagem.SelecionarSexo(jogador.sexo);
         personagem.SelecionarCores(jogador.corPrimaria, jogador.corSecundaria);
+        personagem.SelecionarNome(jogador.nome);
         jogadores.Add(jogador.id, personagem);
 
         float escala = TrocaSalas.GetSalaAtual().GetEscalaDoJogador();

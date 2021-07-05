@@ -114,14 +114,16 @@ public class Conexao : MonoBehaviour
     public void AoConectar()
     {
         Jogador jogador = new Jogador();
-        jogador.corPrimaria = Color.green;
-        jogador.corSecundaria = Color.red;
-        jogador.especie = "Peixe";
-        jogador.sexo = "Masculino";
+        jogador.corPrimaria = Selecao.Instance.GetCor1();
+        jogador.corSecundaria = Selecao.Instance.GetCor2();
+        jogador.especie = Selecao.Instance.CriaturaAtual();
+        jogador.sexo = (int)Selecao.Instance.GetSexo();
+        jogador.nome = Selecao.Instance.GetNome();
 
         jogadorLocal.SelecionarCriatura(jogador.especie);
         jogadorLocal.SelecionarSexo(jogador.sexo);
         jogadorLocal.SelecionarCores(jogador.corPrimaria, jogador.corSecundaria);
+        jogadorLocal.SelecionarNome(jogador.nome);
 
         EnviarRegistro(jogador);
 
