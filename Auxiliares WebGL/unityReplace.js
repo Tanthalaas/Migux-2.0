@@ -1,6 +1,6 @@
 const miguxContainer = `<div id="migux-container">
 <div id="migux-header">
-  <img src="assets/logo-migux-semselo.gif" alt="Migux Logo" id="migux-logo">
+  <img src="assets/logo-miguxbeta.gif" alt="Migux Logo" id="migux-logo">
   <a class="header-button" href="https://twitter.com/MiguxBR" target="_blank">
     <img src="assets/twitter.svg" alt="Twitter logo">
     <p>Twitter</p>
