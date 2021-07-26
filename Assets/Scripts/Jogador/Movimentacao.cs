@@ -27,6 +27,7 @@ public class Movimentacao : MonoBehaviour
     void LateUpdate()
     {
         DetectarTrocadorDeSalas();
+        DetectarColisao();
         AndarAoClicar();
         OlharProMouse();
     }
@@ -48,6 +49,25 @@ public class Movimentacao : MonoBehaviour
                 }
             }else{
                 trocadorDeSalasClicado = null;
+            }
+        }
+    }
+
+    void DetectarColisao()
+    {
+        if(Input.GetMouseButtonDown(0))
+        {
+            Debug.Log(1);
+            Vector2 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            RaycastHit2D hit2D = Physics2D.CircleCast(mousePos, 0.1f, Vector2.up, 0.05f);
+            if(hit2D.collider)
+            {
+                Debug.Log(2);
+                if(hit2D.collider.CompareTag("Colisao"))
+                {
+                    Debug.Log(3);
+                    podeAndar = false;
+                }
             }
         }
     }
