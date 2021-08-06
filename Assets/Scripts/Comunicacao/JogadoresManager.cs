@@ -86,6 +86,7 @@ public class JogadoresManager : MonoBehaviour
 
         float escala = TrocaSalas.GetSalaAtual().GetEscalaDoJogador();
         personagem.DefinirEscala(escala);
+        personagem.OlharParaPonto(personagem.transform.position + Vector3.down);
     }
 
     public void ApagarJogador(string id)
