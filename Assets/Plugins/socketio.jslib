@@ -13,5 +13,8 @@ mergeInto(LibraryManager.library, {
     },
     EnviarChatSocketIO: function(json) {
         socket.emit('chat', Pointer_stringify(json));
-    }
+    },
+    EnviarChapeuSocketIO: function(id, devolveu) {
+        socket.emit('chapeu', id, devolveu);
+    },
 });

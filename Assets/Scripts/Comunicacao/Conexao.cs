@@ -26,6 +26,8 @@ public class Conexao : MonoBehaviour
     private static extern void EnviarTrocaDeSalaSocketIO(string sala);
     [DllImport("__Internal")]
     private static extern void EnviarChatSocketIO(string json);
+    [DllImport("__Internal")]
+    private static extern void EnviarChapeuSocketIO(int id, bool devolveu);
     #else
     SocketIO client;
     #endif
@@ -97,6 +99,14 @@ public class Conexao : MonoBehaviour
             }); 
         });
 
+        client.On("chapeu", response => {
+            string json = response.GetValue<string>();
+            UnityMainThreadDispatcher.Instance().Enqueue(() => 
+            {
+                ReceberChapeu(json);
+            }); 
+        });
+
         client.On("jogador saiu da sala", response => 
         {
             string json = response.GetValue<string>();
@@ -124,6 +134,8 @@ public class Conexao : MonoBehaviour
         jogadorLocal.SelecionarSexo(jogador.sexo);
         jogadorLocal.SelecionarCores(jogador.corPrimaria, jogador.corSecundaria);
         jogadorLocal.SelecionarNome(jogador.nome);
+
+        jogadorLocal.Iniciar();
 
         EnviarRegistro(jogador);
 
@@ -155,6 +167,11 @@ public class Conexao : MonoBehaviour
     {
         JogadoresManager.Instance.JogadorMandouChat(json);
     }
+
+    public void ReceberChapeu(string json)
+    {
+        JogadoresManager.Instance.JogadorTrocouDeChapeu(json);
+    }
     #endregion
 
     public void EnviarRegistro(Jogador jogador)
@@ -177,6 +194,17 @@ public class Conexao : MonoBehaviour
         EnviarMovimentacaoSocketIO(json);
         #else
         client.EmitAsync("movimentacao", json);
+        #endif
+    }
+
+    public void EnviarChapeu(int id, bool devolveu)
+    {
+        #if UNITY_WEBGL && !UNITY_EDITOR
+        EnviarChapeuSocketIO(id, devolveu);
+        Debug.Log("enviando chapeu js");
+        #else
+        client.EmitAsync("chapeu", id);
+        Debug.Log("enviando chapeu cs");
         #endif
     }
 

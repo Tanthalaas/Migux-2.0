@@ -72,21 +72,43 @@ public class JogadoresManager : MonoBehaviour
         }
     }
 
+    public void JogadorTrocouDeChapeu(string json)
+    {
+        TrocaChapeuModel model = JsonUtility.FromJson<TrocaChapeuModel>(json);
+        string id = model.id;
+        
+        Personagem jogador;
+        if(jogadores.TryGetValue(id, out jogador))
+        {
+            if(!model.devolveu)
+            {
+                jogador.SelecionarChapeu(model.chapeuId);
+                return;
+            }
+
+            jogador.EsconderChapeus();
+        }
+    }
+
     void InstanciarJogador(Jogador jogador)
     {
         //TODO: Investigar duplicação de jogadores
         if(jogadores.ContainsKey(jogador.id)) return;
 
         Personagem personagem = Instantiate(personagemPrefab);
+        personagem.SelecionarChapeu(jogador.chapeu);
+        if(jogador.semChapeu) personagem.EsconderChapeus();
         personagem.SelecionarCriatura(jogador.especie);
         personagem.SelecionarSexo(jogador.sexo);
         personagem.SelecionarCores(jogador.corPrimaria, jogador.corSecundaria);
         personagem.SelecionarNome(jogador.nome);
+        personagem.transform.position = new Vector3(jogador.x, jogador.y, 0f);
+
         jogadores.Add(jogador.id, personagem);
 
         float escala = TrocaSalas.GetSalaAtual().GetEscalaDoJogador();
         personagem.DefinirEscala(escala);
-        personagem.OlharParaPonto(personagem.transform.position + Vector3.down);
+        personagem.Iniciar();
     }
 
     public void ApagarJogador(string id)

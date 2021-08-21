@@ -16,6 +16,9 @@ socket.on('movimentacao', (response) => {
 socket.on('chat', (response) => {
     unity.SendMessage('Conexao', 'ReceberChat', response);
 });
+socket.on('chapeu', (response) => {
+    unity.SendMessage('Conexao', 'ReceberChapeu', response);
+});
 socket.on('jogador saiu da sala', (response) => {
     unity.SendMessage('Conexao', 'JogadorSaiuDaSala', response);
 });

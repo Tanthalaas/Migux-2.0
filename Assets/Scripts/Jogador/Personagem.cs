@@ -12,6 +12,13 @@ public class Personagem : MonoBehaviour
 
     [SerializeField] PersonagemBase aguaViva, cavaloMarinho, estrela, peixe, polvo, tubarao;
     PersonagemBase personagemSelecionado;
+    [SerializeField] List<ChapeuNoPersonagem> chapeus = new List<ChapeuNoPersonagem>();
+    bool filtrouChapeusInativos = false;
+
+    public void Iniciar()
+    {
+        personagemSelecionado.MostrarFrente();
+    }
 
     public void SelecionarCriatura(int criatura)
     {
@@ -47,6 +54,37 @@ public class Personagem : MonoBehaviour
     public void SelecionarNome(string nome)
     {
         nomeTexto.text = nome;
+    }
+
+    public void SelecionarChapeu(int id)
+    {
+        Debug.Log($"adicionando chapeu {id}");
+        RemoverChapeusInativos();
+        foreach(ChapeuNoPersonagem chapeu in chapeus)
+        {
+            chapeu.MostrarChapeu(id);
+        }
+    }
+
+    void RemoverChapeusInativos()
+    {
+        List<ChapeuNoPersonagem> chapeusFiltrados = new List<ChapeuNoPersonagem>();
+        foreach(ChapeuNoPersonagem chapeu in chapeus)
+        {
+            if(chapeu) 
+            {
+                chapeusFiltrados.Add(chapeu);
+            }
+        }
+        chapeus = new List<ChapeuNoPersonagem>(chapeusFiltrados);
+    }
+
+    public void EsconderChapeus()
+    {
+        foreach(ChapeuNoPersonagem chapeu in chapeus)
+        {
+            chapeu.EsconderChapeus();
+        }
     }
 
     void MostrarFrente()
