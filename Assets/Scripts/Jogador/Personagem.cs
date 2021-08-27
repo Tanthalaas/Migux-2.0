@@ -6,6 +6,7 @@ using TMPro;
 public class Personagem : MonoBehaviour
 {
     [SerializeField] GameObject balaoDeMensagem;
+    [SerializeField] SpriteRenderer balaoSprite;
     [SerializeField] TextMeshPro mensagemTexto, nomeTexto;
     public const float VELOCIDADE = 8, VELOCIDADENOSKATE = 10;
     public enum Criatura { AguaViva, CavaloMarinho, Estrela, Peixe, Polvo, Tubarao }
@@ -157,7 +158,17 @@ public class Personagem : MonoBehaviour
         StopAllCoroutines();
         balaoDeMensagem.SetActive(true);
         mensagemTexto.text = mensagem;
+        
+        StartCoroutine(AdaptarBalao());
         StartCoroutine(EsperarEOcultarBalao());
+    }
+
+    IEnumerator AdaptarBalao()
+    {
+        yield return new WaitForEndOfFrame();
+        float alturaDoTexto = mensagemTexto.mesh.bounds.extents.y;
+        balaoDeMensagem.transform.localPosition = new Vector3(0f, 1.6f + alturaDoTexto/1.5f, 0f);
+        balaoSprite.size = new Vector2(10f, 10f + alturaDoTexto * 2f);
     }
 
     IEnumerator EsperarEOcultarBalao()
@@ -165,6 +176,8 @@ public class Personagem : MonoBehaviour
         yield return new WaitForSecondsRealtime(5);
         balaoDeMensagem.SetActive(false);
     }
+
+    
 
     public void DefinirEscala(float escala)
     {
