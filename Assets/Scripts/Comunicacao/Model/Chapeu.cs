@@ -1,4 +1,4 @@
 public class Chapeu
 {
-    public enum ChapeuId { Bone, Boina, Cartola, Conico, Fedora }
+    public enum ChapeuId { Bone, Boina, Cartola, Conico, Fedora, Rosa }
 }
